@@ -50,6 +50,13 @@ The script supports various hyperparameters and configurations. For example, to 
 ```bash
 python main.py --env HalfCheetah-v4 --algo_name MPO --adam_learning_rate 0.0003 --batch_size 128
 ```
+### View training charts
+
+The script automatically creates directories for saving logs, which can be viewed using tensorboard
+
+```bash
+tensorboard --logdir /training_logs/HalfCheetah-v4/
+```
 
 ## Hyperparameters
 
