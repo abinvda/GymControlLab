@@ -40,7 +40,7 @@ python main.py --env HalfCheetah-v4 --algo_name SAC
 To visualize the trained model in action, use the `--render` flag along with `--model_name` to specify the path to the trained model:
 
 ```bash
-python main.py --env HalfCheetah-v4 --algo_name MPO --render True --model_name /MPO_/model_latest.pt
+python main.py --env HalfCheetah-v4 --algo_name MPO --render True --model_name MPO_/model_latest.pt
 ```
 
 ### Advanced Configuration
@@ -55,7 +55,7 @@ python main.py --env HalfCheetah-v4 --algo_name MPO --adam_learning_rate 0.0003 
 The script automatically creates directories for saving logs, which can be viewed using tensorboard:
 
 ```bash
-tensorboard --logdir /training_logs/HalfCheetah-v4/
+tensorboard --logdir ./training_logs/HalfCheetah-v4/
 ```
 
 ## Hyperparameters

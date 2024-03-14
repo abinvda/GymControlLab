@@ -9,7 +9,7 @@
   "adam_learning_rate": 0.0005,
   "policyNet_size": 100,
   "qNet_size": 200,
-  "sample_episode_num": 50,
+  "sample_episode_num": 150,
   "batch_size": 64,
   "sample_action_num": 64,
   "iteration_num": 1000,

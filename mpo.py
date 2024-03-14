@@ -124,6 +124,9 @@ class MPO(object):
                         BatchSampler(SubsetRandomSampler(range(buffer_size)), self.batch_size, drop_last=True),
                         desc='training {}/{}'.format(r+1, self.episode_rerun_num)):
 
+                    K = len(indices)  # the sample number of states
+                    N = self.sample_action_num  # the sample number of actions per state
+
                     # Extract batch for training
                     state_batch, action_batch, next_state_batch, reward_batch = zip(*[self.replaybuffer[index] for index in indices])
                     state_batch = torch.from_numpy(np.stack(state_batch)).type(torch.float32).to(self.device)

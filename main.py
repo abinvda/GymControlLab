@@ -98,7 +98,7 @@ def main():
     parser.add_argument('--qNet_size', type=int, default=200, help='Size (neurons per layer) of the Q-network.')
 
     # Training configuration
-    parser.add_argument('--sample_episode_num', type=int, default=150, help='Number of episodes to sample per training iteration.')
+    parser.add_argument('--sample_episode_num', type=int, default=50, help='Number of episodes to sample per training iteration.')
     parser.add_argument('--batch_size', type=int, default=64, help='Batch size for training.')
     parser.add_argument('--sample_action_num', type=int, default=64, help='Number of actions to sample during training.')
     parser.add_argument('--iteration_num', type=int, default=1000, help='Total number of training iterations.')
@@ -106,7 +106,7 @@ def main():
 
     # Evaluation configuration
     parser.add_argument('--evaluate_period', type=int, default=10, help='Number of iterations between evaluations.')
-    parser.add_argument('--evaluate_episode_num', type=int, default=100, help='Number of episodes to use for each evaluation.')
+    parser.add_argument('--evaluate_episode_num', type=int, default=10, help='Number of episodes to use for each evaluation.')
     parser.add_argument('--evaluate_episode_maxstep', type=int, default=300, help='Maximum number of steps per evaluation episode.')
 
     # Loss and optimization
@@ -115,11 +115,13 @@ def main():
     parser.add_argument('--alpha_var_scale', type=float, default=100.0, help='Scaling factor for the Lagrangian multiplier related to variance in M-step.')
     parser.add_argument('--alpha_mean_max', type=float, default=0.1, help='Maximum value for the Lagrangian multiplier related to mean.')
     parser.add_argument('--alpha_var_max', type=float, default=10.0, help='Maximum value for the Lagrangian multiplier related to variance.')
+    parser.add_argument('--sample_episode_maxstep', type=int, default=300, help='maximum length of a sampled episode')
     parser.add_argument('--mstep_iteration_num', type=int, default=10, help='Number of iterations for the M-Step optimization.')
 
     # Logging and rendering
     parser.add_argument('--log_dir', type=str, default="training_logs/", help='Directory for training logs.')
     parser.add_argument('--model_dir', type=str, default="saved_models/", help='Directory for saving trained models.')
+    parser.add_argument('--load', type=str, default=None, help='load path')
     parser.add_argument('--overwrite_logs', type=bool, default=False, help='Whether to overwrite existing logs.')
     parser.add_argument('--render', type=bool, default=False, help='Whether to render the environment for visualization.')
     parser.add_argument('--model_name', type=str, default="MPO_/model_latest.pt", help='Path to a specific model for evaluation or further training.')
